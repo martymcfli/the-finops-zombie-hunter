@@ -328,6 +328,19 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 flex flex-col font-sans selection:bg-indigo-500/30">
+
+      {/* ── Watermark mascot ── */}
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/mascot.jpeg"
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          className="w-[90vw] max-w-5xl opacity-[0.045] select-none"
+          style={{ filter: 'saturate(0.6) brightness(1.4)' }}
+        />
+      </div>
+
       {/* Top Navbar */}
       <header className="h-16 border-b border-white/10 bg-slate-900/50 flex items-center px-6 shrink-0 backdrop-blur-md sticky top-0 z-20">
         <div className="flex items-center gap-3">
@@ -351,7 +364,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden relative z-10">
         {/* Left Sidebar */}
         <aside className="w-64 border-r border-white/10 bg-slate-900/20 p-4 flex flex-col gap-2 shrink-0">
           <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
