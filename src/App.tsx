@@ -8,6 +8,7 @@ import {
   Database,
   Download,
   Filter,
+  Info,
   MessageSquare,
   Server,
   Skull,
@@ -53,6 +54,30 @@ function useCountUp(target: number, duration = 900): number {
   }, [target, duration]);
 
   return current;
+}
+
+// ---------------------------------------------------------------------------
+// Tooltip component — pure CSS via Tailwind group/group-hover
+// ---------------------------------------------------------------------------
+function Tooltip({ text }: { text: string }) {
+  return (
+    <span className="relative inline-flex items-center group/tip">
+      <Info className="w-3.5 h-3.5 text-slate-500 group-hover/tip:text-slate-300 cursor-help transition-colors shrink-0" />
+      <span
+        className={[
+          'pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5',
+          'w-64 rounded-lg border border-white/10 bg-slate-800/95 p-3 shadow-2xl',
+          'text-xs leading-relaxed text-slate-300',
+          'opacity-0 group-hover/tip:opacity-100 transition-opacity duration-200',
+          'z-[9999]',
+        ].join(' ')}
+      >
+        {/* Arrow */}
+        <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-slate-800 border-r border-b border-white/10" />
+        {text}
+      </span>
+    </span>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -507,7 +532,10 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="flex justify-between items-start relative z-10">
                 <div>
-                  <p className="text-sm font-medium text-slate-400 mb-1">Total Waste / Mo</p>
+                  <p className="text-sm font-medium text-slate-400 mb-1 flex items-center gap-1.5">
+                    Total Waste / Mo
+                    <Tooltip text="Calculates the total monthly cost of all instances flagged as 'Zombies'." />
+                  </p>
                   <h3 className="text-3xl font-semibold text-white tracking-tight">
                     <AnimatedNumber value={totalCostWaste} prefix="$" decimals={2} />
                   </h3>
@@ -528,7 +556,10 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="flex justify-between items-start relative z-10">
                 <div>
-                  <p className="text-sm font-medium text-slate-400 mb-1">Power Waste (Grid)</p>
+                  <p className="text-sm font-medium text-slate-400 mb-1 flex items-center gap-1.5">
+                    Power Waste (Grid)
+                    <Tooltip text="Assumes ~120 Watts of idle power draw per zombie instance, converted to Kilowatts." />
+                  </p>
                   <h3 className="text-3xl font-semibold text-white tracking-tight">
                     <AnimatedNumber value={totalPowerKW} suffix=" kW" decimals={2} />
                   </h3>
@@ -549,7 +580,10 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="flex justify-between items-start relative z-10">
                 <div>
-                  <p className="text-sm font-medium text-slate-400 mb-1">HVAC Cooling Load</p>
+                  <p className="text-sm font-medium text-slate-400 mb-1 flex items-center gap-1.5">
+                    HVAC Cooling Load
+                    <Tooltip text="Calculates facility strain using an industry-standard 1.3 Power Usage Effectiveness (PUE) multiplier. 3.517 kW = 1 Ton of HVAC cooling." />
+                  </p>
                   <h3 className="text-3xl font-semibold text-white tracking-tight">
                     <AnimatedNumber value={coolingLoadTons} suffix=" Tons" decimals={2} />
                   </h3>
@@ -616,7 +650,12 @@ export default function App() {
                     <th className="px-6 py-4 font-medium">Type</th>
                     <th className="px-6 py-4 font-medium">Owner</th>
                     <th className="px-6 py-4 font-medium text-right">CPU Avg (%)</th>
-                    <th className="px-6 py-4 font-medium text-right">Network (Bytes)</th>
+                    <th className="px-6 py-4 font-medium text-right">
+                      <span className="inline-flex items-center justify-end gap-1.5">
+                        Network (Bytes)
+                        <Tooltip text="The threshold metric. Instances with under 50,000 bytes of network traffic are flagged as isolated/orphaned zombies." />
+                      </span>
+                    </th>
                     <th className="px-6 py-4 font-medium text-right">Days Running</th>
                     <th className="px-6 py-4 font-medium text-right">Monthly Cost</th>
                     <th className="px-6 py-4 font-medium text-center">Action</th>
