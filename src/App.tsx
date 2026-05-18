@@ -8,6 +8,7 @@ import {
   Download,
   Filter,
   Info,
+  Leaf,
   Loader2,
   MessageSquare,
   Send,
@@ -482,12 +483,14 @@ export default function App() {
   const loadDBTier2     = () => setData((mockData as InstanceData[]).filter(i => i.instanceType.startsWith('m') || i.instanceType.startsWith('r')));
   const clearData       = () => setData([]);
 
-  const { zombies, totalCostWaste, totalPowerKW, coolingLoadTons } = useMemo(() => {
-    const zombies       = data.filter(i => i.networkInBytes < 50000);
+  const { zombies, totalCostWaste, totalPowerKW, coolingLoadTons, co2Lbs } = useMemo(() => {
+    const zombies          = data.filter(i => i.networkInBytes < 50000);
     const totalCostWaste   = zombies.reduce((acc, curr) => acc + curr.monthlyCost, 0);
     const totalPowerKW     = (zombies.length * 120) / 1000;
     const coolingLoadTons  = (totalPowerKW * 1.3) / 3.517;
-    return { zombies, totalCostWaste, totalPowerKW, coolingLoadTons };
+    // 730 hrs/month × 0.85 lbs CO2e per kWh (US EPA average grid emission factor)
+    const co2Lbs           = totalPowerKW * 730 * 0.85;
+    return { zombies, totalCostWaste, totalPowerKW, coolingLoadTons, co2Lbs };
   }, [data]);
 
   const displayedRows = showZombiesOnly ? data.filter(i => i.networkInBytes < 50000) : data;
@@ -545,7 +548,7 @@ export default function App() {
         <main className="flex-1 overflow-auto p-8 flex flex-col gap-8">
 
           {/* Metric Cards */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
               {
                 title: 'Total Waste / Mo',
@@ -553,7 +556,7 @@ export default function App() {
                 badge: `${zombies.length} instances`,
                 badgeCls: totalCostWaste > 0 ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-slate-500/10 text-slate-400 border-slate-500/20',
                 icon: <AlertTriangle className="text-red-500 w-6 h-6" />,
-                tip: "Calculates the total monthly cost of all instances flagged as 'Zombies'.",
+                tip: "Calculates the total monthly cost of all instances flagged as 'Zombies'. EC2 bills by the hour of runtime — an idle instance costs the same as a busy one.",
               },
               {
                 title: 'Power Waste (Grid)',
@@ -561,7 +564,7 @@ export default function App() {
                 badge: 'Idle Draw',
                 badgeCls: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
                 icon: <Zap className="text-yellow-400 w-6 h-6" />,
-                tip: 'Assumes ~120 Watts of idle power draw per zombie instance, converted to Kilowatts.',
+                tip: 'Assumes ~120 Watts of idle power draw per zombie instance, converted to Kilowatts. Physical servers draw power even when idle — this is real grid load on the data centre floor.',
               },
               {
                 title: 'HVAC Cooling Load',
@@ -570,6 +573,14 @@ export default function App() {
                 badgeCls: 'bg-red-500/10 text-red-400 border-red-500/20',
                 icon: <Activity className="text-blue-400 w-6 h-6" />,
                 tip: 'Calculates facility strain using an industry-standard 1.3 Power Usage Effectiveness (PUE) multiplier. 3.517 kW = 1 Ton of HVAC cooling.',
+              },
+              {
+                title: 'Carbon Footprint',
+                node: <AnimatedNumber value={co2Lbs} suffix=" lbs" decimals={1} />,
+                badge: 'CO₂e / Month',
+                badgeCls: 'bg-green-500/10 text-green-400 border-green-500/20',
+                icon: <Leaf className="text-green-500 w-6 h-6" />,
+                tip: 'Monthly carbon output of idle zombie instances. Formula: Idle kW × 730 hrs/month × 0.85 lbs CO₂e/kWh (US EPA average grid emission factor). Aligns with AWS\'s Climate Pledge net-zero carbon commitment.',
               },
             ].map((m, i) => (
               <div key={i} className="bg-slate-900/40 border border-white/10 rounded-xl p-6 flex flex-col gap-4 relative overflow-hidden group">
