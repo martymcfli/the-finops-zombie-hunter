@@ -319,11 +319,14 @@ function SlackMessageCard({
         {sendState === 'error' && <><X className="w-4 h-4" /> Failed — check webhook URL</>}
       </button>
 
-      {!SLACK_WEBHOOK_URL && sendState === 'idle' && (
-        <p className="text-[10px] text-slate-600 text-center -mt-2">
-          Set <code className="text-slate-500">SLACK_WEBHOOK_URL</code> in App.tsx to enable live sending.
-        </p>
-      )}
+      <div className="flex items-center justify-center gap-1.5 -mt-1">
+        <Tooltip text="Fires a real HTTP POST to a Slack Incoming Webhook. The payload uses Slack's mrkdwn format (*bold*, `code`). The URL is stored as a Vercel environment variable — never hardcoded in the repo." />
+        {!SLACK_WEBHOOK_URL && sendState === 'idle' && (
+          <p className="text-[10px] text-slate-600">
+            Set <code className="text-slate-500">VITE_SLACK_WEBHOOK_URL</code> in Vercel to enable.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -522,15 +525,18 @@ export default function App() {
           <button onClick={loadAppClusterA} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800/50 text-slate-300 hover:text-white transition-colors group">
             <Server className="w-4 h-4 text-slate-500 group-hover:text-indigo-400 transition-colors" />
             <span className="text-sm font-medium">Load App-Cluster-A</span>
+            <Tooltip text="Loads t3 and c5 instance types — compute-optimised workloads typical of application tiers. Good for isolating front-end or API server zombies." />
           </button>
           <button onClick={loadDBTier2} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800/50 text-slate-300 hover:text-white transition-colors group">
             <Database className="w-4 h-4 text-slate-500 group-hover:text-indigo-400 transition-colors" />
             <span className="text-sm font-medium">Load DB-Tier-2</span>
+            <Tooltip text="Loads m5 and r5 instance types — memory-optimised instances used for databases and caches. Idle database servers are high-value FinOps targets due to their higher hourly cost." />
           </button>
           <div className="mt-auto pt-4 border-t border-white/5">
             <button onClick={clearData} className="flex items-center gap-3 px-3 py-2.5 rounded-lg w-full hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-colors group">
               <Trash2 className="w-4 h-4 group-hover:text-red-400 transition-colors" />
               <span className="text-sm font-medium">Clear Data</span>
+              <Tooltip text="Resets the dashboard to an empty state. Metric cards animate back to zero, demonstrating the count-up animation on reload." />
             </button>
           </div>
         </aside>
@@ -598,18 +604,24 @@ export default function App() {
                 </p>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
-                <button
-                  onClick={() => setShowZombiesOnly(prev => !prev)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${showZombiesOnly ? 'bg-red-500/20 text-red-300 border-red-500/40' : 'bg-slate-800/60 text-slate-400 border-white/10 hover:text-white'}`}
-                >
-                  <Filter className="w-3 h-3" />
-                  {showZombiesOnly ? 'Zombies Only' : 'All Instances'}
-                </button>
-                {zombies.length > 0 && (
-                  <button onClick={() => exportZombieCSV(zombies)} className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 bg-slate-800/60 text-slate-400 hover:text-white transition-colors">
-                    <Download className="w-3 h-3" />
-                    Export Zombies
+                <span className="inline-flex items-center gap-1.5">
+                  <button
+                    onClick={() => setShowZombiesOnly(prev => !prev)}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${showZombiesOnly ? 'bg-red-500/20 text-red-300 border-red-500/40' : 'bg-slate-800/60 text-slate-400 border-white/10 hover:text-white'}`}
+                  >
+                    <Filter className="w-3 h-3" />
+                    {showZombiesOnly ? 'Zombies Only' : 'All Instances'}
                   </button>
+                  <Tooltip text="Toggles between all instances and zombie-only view. Zombies are instances with fewer than 50,000 bytes of network I/O — the core detection threshold of the platform." />
+                </span>
+                {zombies.length > 0 && (
+                  <span className="inline-flex items-center gap-1.5">
+                    <button onClick={() => exportZombieCSV(zombies)} className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 bg-slate-800/60 text-slate-400 hover:text-white transition-colors">
+                      <Download className="w-3 h-3" />
+                      Export Zombies
+                    </button>
+                    <Tooltip text="Downloads a dated CSV of all flagged zombie instances including AWS tags, cost centre, team, CPU, and network data. Ready for a FinOps billing report or an executive summary." />
+                  </span>
                 )}
                 <div className="text-sm font-medium text-slate-500 bg-slate-900 px-3 py-1.5 rounded-full border border-white/5">
                   {displayedRows.length} Instances
@@ -621,20 +633,60 @@ export default function App() {
               <table className="w-full text-left text-sm whitespace-nowrap">
                 <thead className="bg-slate-900/80 text-slate-400 border-b border-white/10">
                   <tr>
-                    <th className="px-6 py-4 font-medium">Instance ID</th>
-                    <th className="px-6 py-4 font-medium">Type</th>
-                    <th className="px-6 py-4 font-medium">Owner</th>
-                    <th className="px-6 py-4 font-medium">Tags / Metadata</th>
-                    <th className="px-6 py-4 font-medium text-right">CPU Avg (%)</th>
+                    <th className="px-6 py-4 font-medium">
+                      <span className="inline-flex items-center gap-1.5">
+                        Instance ID
+                        <Tooltip text="The unique AWS identifier for an EC2 virtual machine, formatted as i-xxxxxxxxxxxxxxxxx. Pulsing red dot = zombie. Solid green dot = healthy active instance." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium">
+                      <span className="inline-flex items-center gap-1.5">
+                        Type
+                        <Tooltip text="The EC2 instance family and size (e.g. t3.large, m5.xlarge). Determines vCPU count, RAM, and the on-demand hourly rate. Larger types burning idle are higher priority targets." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium">
+                      <span className="inline-flex items-center gap-1.5">
+                        Owner
+                        <Tooltip text="The engineer or team responsible for this instance, pulled from AWS resource ownership tags. The AI Communication Agent addresses the decommission request directly to this person." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium">
+                      <span className="inline-flex items-center gap-1.5">
+                        Tags / Metadata
+                        <Tooltip text="AWS Resource Tags are key-value pairs attached to EC2 instances for governance and cost allocation. 'Env: Prod' instances require extra scrutiny — killing a production server without a blast radius check can cause an outage." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium text-right">
+                      <span className="inline-flex items-center justify-end gap-1.5">
+                        CPU Avg (%)
+                        <Tooltip text="Average CPU utilisation over the 30-day window. Values below 5% are red, but CPU alone is not the zombie signal — a server can idle-spin at low CPU while still serving legitimate traffic. Network I/O is the definitive metric." />
+                      </span>
+                    </th>
                     <th className="px-6 py-4 font-medium text-right">
                       <span className="inline-flex items-center justify-end gap-1.5">
                         Network (Bytes)
                         <Tooltip text="The threshold metric. Instances with under 50,000 bytes of network traffic are flagged as isolated/orphaned zombies." />
                       </span>
                     </th>
-                    <th className="px-6 py-4 font-medium text-right">Days Running</th>
-                    <th className="px-6 py-4 font-medium text-right">Monthly Cost</th>
-                    <th className="px-6 py-4 font-medium text-center">Action</th>
+                    <th className="px-6 py-4 font-medium text-right">
+                      <span className="inline-flex items-center justify-end gap-1.5">
+                        Days Running
+                        <Tooltip text="Total continuous uptime. A high day count combined with near-zero network I/O is a strong compound zombie signal — the longer it runs idle, the greater the accumulated waste and the more urgent the decommission." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium text-right">
+                      <span className="inline-flex items-center justify-end gap-1.5">
+                        Monthly Cost
+                        <Tooltip text="On-demand EC2 pricing for this instance type, expressed as a monthly equivalent. This burns continuously regardless of utilisation — it is the direct financial case for decommissioning." />
+                      </span>
+                    </th>
+                    <th className="px-6 py-4 font-medium text-center">
+                      <span className="inline-flex items-center justify-center gap-1.5">
+                        Action
+                        <Tooltip text="Click any zombie row to open the AI Communication Agent. It runs a Blast Radius dependency check, then generates a personalised Slack decommission request ready to send to the instance owner." />
+                      </span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
@@ -719,7 +771,10 @@ export default function App() {
                   <Bot className="w-4 h-4 text-indigo-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">AI Communication Agent</p>
+                  <p className="text-sm font-semibold text-white flex items-center gap-1.5">
+                    AI Communication Agent
+                    <Tooltip text="A simulated LLM pipeline that drafts a Slack decommission request personalised to the instance owner. In production this would call a real LLM API (e.g. Claude or Bedrock). The 2-second delay and typewriter stream mimic a real inference call." />
+                  </p>
                   {selectedZombie && <p className="text-xs text-slate-500 font-mono">{selectedZombie.instanceId}</p>}
                 </div>
               </div>
@@ -764,7 +819,10 @@ export default function App() {
                         <>
                           <Loader2 className="w-4 h-4 text-slate-400 animate-spin mt-0.5 shrink-0" />
                           <div>
-                            <p className="text-sm font-semibold text-slate-300">Checking Blast Radius...</p>
+                            <p className="text-sm font-semibold text-slate-300 flex items-center gap-1.5">
+                              Checking Blast Radius...
+                              <Tooltip text="'Blast Radius' is AWS operational vocabulary for the downstream impact of an action. Before decommissioning, this step checks for attached ELBs, RDS snapshots, Elastic Network Interfaces, and service mesh connections that would break if the instance disappeared." />
+                            </p>
                             <p className="text-xs text-slate-500 mt-0.5">Scanning for attached ELBs, RDS snapshots, ENI attachments &amp; service mesh connections</p>
                           </div>
                         </>
