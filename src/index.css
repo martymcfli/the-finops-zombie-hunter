@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@keyframes zombie-glow {
+  0%, 100% { background-color: rgba(127, 29, 29, 0.06); }
+  50%       { background-color: rgba(185, 28, 28, 0.14); }
+}
+.zombie-row {
+  animation: zombie-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s step-end infinite;
+}
