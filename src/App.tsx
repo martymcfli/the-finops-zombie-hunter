@@ -22,9 +22,11 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import mockData from './mockData.json';
 
 // ---------------------------------------------------------------------------
-// Slack Incoming Webhook — paste your URL here to enable live sending
+// Slack Incoming Webhook
+// Set VITE_SLACK_WEBHOOK_URL in your Vercel dashboard (or a local .env file).
+// Never hardcode this value — the repo is public.
 // ---------------------------------------------------------------------------
-const SLACK_WEBHOOK_URL = '';
+const SLACK_WEBHOOK_URL = import.meta.env.VITE_SLACK_WEBHOOK_URL ?? '';
 
 // ---------------------------------------------------------------------------
 // Types
