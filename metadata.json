@@ -1,0 +1,8 @@
+{
+  "name": "The FinOps Zombie Hunter",
+  "description": "A dark-mode enterprise dashboard for tracking and managing stranded server costs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
