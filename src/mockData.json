@@ -7,7 +7,8 @@
     "cpuUtilizationAvg": 45.2,
     "networkInBytes": 1050000000,
     "daysRunning": 120,
-    "monthlyCost": 60.50
+    "monthlyCost": 60.50,
+    "tags": { "Env": "Prod", "CostCenter": "8821", "Team": "Platform" }
   },
   {
     "instanceId": "i-0z9y8x7w6v5u4t3s2",
@@ -17,7 +18,8 @@
     "cpuUtilizationAvg": 0.5,
     "networkInBytes": 1024,
     "daysRunning": 450,
-    "monthlyCost": 150.25
+    "monthlyCost": 150.25,
+    "tags": { "Env": "Dev", "CostCenter": "4099", "Team": "DataSci" }
   },
   {
     "instanceId": "i-0p1o2i3u4y5t6r7e8",
@@ -27,7 +29,8 @@
     "cpuUtilizationAvg": 78.9,
     "networkInBytes": 5000000000,
     "daysRunning": 30,
-    "monthlyCost": 300.00
+    "monthlyCost": 300.00,
+    "tags": { "Env": "Prod", "CostCenter": "8821", "Team": "ML-Infra" }
   },
   {
     "instanceId": "i-0l1k2j3h4g5f6d7s8",
@@ -37,7 +40,8 @@
     "cpuUtilizationAvg": 0.1,
     "networkInBytes": 512,
     "daysRunning": 600,
-    "monthlyCost": 30.25
+    "monthlyCost": 30.25,
+    "tags": { "Env": "Staging", "CostCenter": "3302", "Team": "Analytics" }
   },
   {
     "instanceId": "i-0m1n2b3v4c5x6z7a8",
@@ -47,6 +51,7 @@
     "cpuUtilizationAvg": 60.0,
     "networkInBytes": 2000000000,
     "daysRunning": 90,
-    "monthlyCost": 120.00
+    "monthlyCost": 120.00,
+    "tags": { "Env": "Prod", "CostCenter": "7741", "Team": "Backend" }
   }
 ]
