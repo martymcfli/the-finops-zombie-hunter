@@ -4,44 +4,60 @@
     "instanceType": "p4de.24xlarge",
     "ownerName": "Marcus Webb",
     "ownerEmail": "m.webb@corp-infra.com",
-    "cpuUtilizationAvg": 0.3,
-    "networkInBytes": 1024,
+    "cpuUtilizationAvg": 88.4,
+    "networkInBytes": 854000000000,
     "daysRunning": 312,
-    "monthlyCost": 185400.00,
-    "tags": { "Env": "Dev", "CostCenter": "ML-9941", "Team": "ML-Research" }
+    "monthlyCost": 185400.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "ML-9941",
+      "Team": "ML-Research"
+    }
   },
   {
     "instanceId": "i-0b2d4f6e8a0c1e3f5",
     "instanceType": "p4d.24xlarge",
     "ownerName": "Priya Sharma",
     "ownerEmail": "p.sharma@corp-infra.com",
-    "cpuUtilizationAvg": 0.6,
-    "networkInBytes": 2048,
+    "cpuUtilizationAvg": 85.7,
+    "networkInBytes": 692000000000,
     "daysRunning": 287,
-    "monthlyCost": 142800.00,
-    "tags": { "Env": "Staging", "CostCenter": "ML-9941", "Team": "AI-Platform" }
+    "monthlyCost": 142800.0,
+    "tags": {
+      "Env": "Staging",
+      "CostCenter": "ML-9941",
+      "Team": "AI-Platform"
+    }
   },
   {
     "instanceId": "i-0c7e1f3a5b8d2e4f6",
     "instanceType": "p3.16xlarge",
     "ownerName": "James Kowalski",
     "ownerEmail": "j.kowalski@corp-infra.com",
-    "cpuUtilizationAvg": 0.4,
-    "networkInBytes": 512,
+    "cpuUtilizationAvg": 79.1,
+    "networkInBytes": 318000000000,
     "daysRunning": 198,
-    "monthlyCost": 94200.00,
-    "tags": { "Env": "Dev", "CostCenter": "AI-7723", "Team": "Deep-Learning" }
+    "monthlyCost": 94200.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "AI-7723",
+      "Team": "Deep-Learning"
+    }
   },
   {
     "instanceId": "i-0d9f2e4c6a1b3d5e7",
     "instanceType": "r6i.32xlarge",
     "ownerName": "Kenji Tanaka",
     "ownerEmail": "k.tanaka@corp-infra.com",
-    "cpuUtilizationAvg": 1.2,
-    "networkInBytes": 8192,
+    "cpuUtilizationAvg": 66.3,
+    "networkInBytes": 784000000000,
     "daysRunning": 156,
-    "monthlyCost": 72600.00,
-    "tags": { "Env": "Staging", "CostCenter": "DATA-3301", "Team": "Data-Eng" }
+    "monthlyCost": 72600.0,
+    "tags": {
+      "Env": "Staging",
+      "CostCenter": "DATA-3301",
+      "Team": "Data-Eng"
+    }
   },
   {
     "instanceId": "i-0e1a3c5f7b9d2e4f8",
@@ -51,8 +67,12 @@
     "cpuUtilizationAvg": 0.8,
     "networkInBytes": 4096,
     "daysRunning": 421,
-    "monthlyCost": 68400.00,
-    "tags": { "Env": "Dev", "CostCenter": "ML-9941", "Team": "Inference" }
+    "monthlyCost": 68400.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "ML-9941",
+      "Team": "Inference"
+    }
   },
   {
     "instanceId": "i-0f5b7d9e1c3a2f4b6",
@@ -62,8 +82,12 @@
     "cpuUtilizationAvg": 1.1,
     "networkInBytes": 6144,
     "daysRunning": 245,
-    "monthlyCost": 54000.00,
-    "tags": { "Env": "Dev", "CostCenter": "INNOV-5512", "Team": "Innovation" }
+    "monthlyCost": 54000.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "INNOV-5512",
+      "Team": "Innovation"
+    }
   },
   {
     "instanceId": "i-0a2c4e6f8b1d3f5a7",
@@ -73,8 +97,12 @@
     "cpuUtilizationAvg": 0.5,
     "networkInBytes": 2048,
     "daysRunning": 187,
-    "monthlyCost": 48200.00,
-    "tags": { "Env": "Staging", "CostCenter": "PLAT-4400", "Team": "Platform" }
+    "monthlyCost": 48200.0,
+    "tags": {
+      "Env": "Staging",
+      "CostCenter": "PLAT-4400",
+      "Team": "Platform"
+    }
   },
   {
     "instanceId": "i-0b3d5f7a9c2e4f6b8",
@@ -84,8 +112,12 @@
     "cpuUtilizationAvg": 0.2,
     "networkInBytes": 1024,
     "daysRunning": 534,
-    "monthlyCost": 43800.00,
-    "tags": { "Env": "Dev", "CostCenter": "DATA-3301", "Team": "Data-Lake" }
+    "monthlyCost": 43800.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "DATA-3301",
+      "Team": "Data-Lake"
+    }
   },
   {
     "instanceId": "i-0c4e6a8b1d3f5e7c9",
@@ -95,8 +127,12 @@
     "cpuUtilizationAvg": 0.7,
     "networkInBytes": 3072,
     "daysRunning": 99,
-    "monthlyCost": 38500.00,
-    "tags": { "Env": "Dev", "CostCenter": "QA-6610", "Team": "QA" }
+    "monthlyCost": 38500.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "QA-6610",
+      "Team": "QA"
+    }
   },
   {
     "instanceId": "i-0d5f7b9a2c4e6f8d1",
@@ -106,30 +142,42 @@
     "cpuUtilizationAvg": 1.4,
     "networkInBytes": 5120,
     "daysRunning": 143,
-    "monthlyCost": 32760.00,
-    "tags": { "Env": "Staging", "CostCenter": "BACK-8801", "Team": "Backend" }
+    "monthlyCost": 32760.0,
+    "tags": {
+      "Env": "Staging",
+      "CostCenter": "BACK-8801",
+      "Team": "Backend"
+    }
   },
   {
     "instanceId": "i-0e6a8c1b3d5f7e9a2",
     "instanceType": "g4dn.8xlarge",
     "ownerName": "Lin Wei",
     "ownerEmail": "l.wei@corp-infra.com",
-    "cpuUtilizationAvg": 0.9,
-    "networkInBytes": 4096,
+    "cpuUtilizationAvg": 72.8,
+    "networkInBytes": 234000000000,
     "daysRunning": 78,
-    "monthlyCost": 28400.00,
-    "tags": { "Env": "Dev", "CostCenter": "ML-9941", "Team": "ML-Dev" }
+    "monthlyCost": 28400.0,
+    "tags": {
+      "Env": "Dev",
+      "CostCenter": "ML-9941",
+      "Team": "ML-Dev"
+    }
   },
   {
     "instanceId": "i-0f7b9d2c4e6a8f1b3",
     "instanceType": "r5.16xlarge",
     "ownerName": "Ethan Vasquez",
     "ownerEmail": "e.vasquez@corp-infra.com",
-    "cpuUtilizationAvg": 1.8,
-    "networkInBytes": 7168,
+    "cpuUtilizationAvg": 64.7,
+    "networkInBytes": 312000000000,
     "daysRunning": 201,
-    "monthlyCost": 24960.00,
-    "tags": { "Env": "Staging", "CostCenter": "DBA-2240", "Team": "DBA" }
+    "monthlyCost": 24960.0,
+    "tags": {
+      "Env": "Staging",
+      "CostCenter": "DBA-2240",
+      "Team": "DBA"
+    }
   },
   {
     "instanceId": "i-0a8c1e3f5b7d9a2c4",
@@ -139,8 +187,12 @@
     "cpuUtilizationAvg": 91.2,
     "networkInBytes": 912000000000,
     "daysRunning": 180,
-    "monthlyCost": 224100.00,
-    "tags": { "Env": "Prod", "CostCenter": "ML-9941", "Team": "ML-Research" }
+    "monthlyCost": 224100.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "ML-9941",
+      "Team": "ML-Research"
+    }
   },
   {
     "instanceId": "i-0b9d2f4a6c8e1b3d5",
@@ -150,8 +202,12 @@
     "cpuUtilizationAvg": 87.3,
     "networkInBytes": 748000000000,
     "daysRunning": 156,
-    "monthlyCost": 178500.00,
-    "tags": { "Env": "Prod", "CostCenter": "AI-7723", "Team": "LLM-Infra" }
+    "monthlyCost": 178500.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "AI-7723",
+      "Team": "LLM-Infra"
+    }
   },
   {
     "instanceId": "i-0c1e3a5d7f9b2c4e6",
@@ -161,8 +217,12 @@
     "cpuUtilizationAvg": 82.7,
     "networkInBytes": 324000000000,
     "daysRunning": 203,
-    "monthlyCost": 112800.00,
-    "tags": { "Env": "Prod", "CostCenter": "AI-7723", "Team": "CV-Models" }
+    "monthlyCost": 112800.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "AI-7723",
+      "Team": "CV-Models"
+    }
   },
   {
     "instanceId": "i-0d2f4b6e8a1c3d5f7",
@@ -172,8 +232,12 @@
     "cpuUtilizationAvg": 76.4,
     "networkInBytes": 287000000000,
     "daysRunning": 134,
-    "monthlyCost": 94200.00,
-    "tags": { "Env": "Prod", "CostCenter": "AI-7723", "Team": "NLP-Research" }
+    "monthlyCost": 94200.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "AI-7723",
+      "Team": "NLP-Research"
+    }
   },
   {
     "instanceId": "i-0e3a5c7f9b2d4e6a8",
@@ -183,8 +247,12 @@
     "cpuUtilizationAvg": 74.1,
     "networkInBytes": 512000000000,
     "daysRunning": 89,
-    "monthlyCost": 105600.00,
-    "tags": { "Env": "Prod", "CostCenter": "INFER-1102", "Team": "Inference" }
+    "monthlyCost": 105600.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "INFER-1102",
+      "Team": "Inference"
+    }
   },
   {
     "instanceId": "i-0f4b6d8a1c3e5f7b9",
@@ -194,8 +262,12 @@
     "cpuUtilizationAvg": 68.9,
     "networkInBytes": 438000000000,
     "daysRunning": 112,
-    "monthlyCost": 87300.00,
-    "tags": { "Env": "Prod", "CostCenter": "INFER-1102", "Team": "Scoring" }
+    "monthlyCost": 87300.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "INFER-1102",
+      "Team": "Scoring"
+    }
   },
   {
     "instanceId": "i-0a5c7e9f2b4d6a8c1",
@@ -205,8 +277,12 @@
     "cpuUtilizationAvg": 58.3,
     "networkInBytes": 1024000000000,
     "daysRunning": 267,
-    "monthlyCost": 144000.00,
-    "tags": { "Env": "Prod", "CostCenter": "DATA-3301", "Team": "Data-Warehouse" }
+    "monthlyCost": 144000.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DATA-3301",
+      "Team": "Data-Warehouse"
+    }
   },
   {
     "instanceId": "i-0b6d8f1a3c5e7b9d2",
@@ -216,8 +292,12 @@
     "cpuUtilizationAvg": 63.7,
     "networkInBytes": 876000000000,
     "daysRunning": 198,
-    "monthlyCost": 108000.00,
-    "tags": { "Env": "Prod", "CostCenter": "DATA-3301", "Team": "Analytics" }
+    "monthlyCost": 108000.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DATA-3301",
+      "Team": "Analytics"
+    }
   },
   {
     "instanceId": "i-0c7e9a2b4d6f8c1e3",
@@ -227,8 +307,12 @@
     "cpuUtilizationAvg": 72.1,
     "networkInBytes": 648000000000,
     "daysRunning": 312,
-    "monthlyCost": 96400.00,
-    "tags": { "Env": "Prod", "CostCenter": "DBA-2240", "Team": "DBA" }
+    "monthlyCost": 96400.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DBA-2240",
+      "Team": "DBA"
+    }
   },
   {
     "instanceId": "i-0d8f1b3c5e7a9d2f4",
@@ -238,8 +322,12 @@
     "cpuUtilizationAvg": 67.8,
     "networkInBytes": 512000000000,
     "daysRunning": 289,
-    "monthlyCost": 72300.00,
-    "tags": { "Env": "Prod", "CostCenter": "DBA-2240", "Team": "DBA" }
+    "monthlyCost": 72300.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DBA-2240",
+      "Team": "DBA"
+    }
   },
   {
     "instanceId": "i-0e9a2c4d6f8b1e3a5",
@@ -249,8 +337,12 @@
     "cpuUtilizationAvg": 79.4,
     "networkInBytes": 394000000000,
     "daysRunning": 445,
-    "monthlyCost": 81600.00,
-    "tags": { "Env": "Prod", "CostCenter": "PLAT-4400", "Team": "App-Services" }
+    "monthlyCost": 81600.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "PLAT-4400",
+      "Team": "App-Services"
+    }
   },
   {
     "instanceId": "i-0f1b3d5e7a9c2f4b6",
@@ -260,8 +352,12 @@
     "cpuUtilizationAvg": 71.2,
     "networkInBytes": 328000000000,
     "daysRunning": 378,
-    "monthlyCost": 67200.00,
-    "tags": { "Env": "Prod", "CostCenter": "PLAT-4400", "Team": "API-Gateway" }
+    "monthlyCost": 67200.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "PLAT-4400",
+      "Team": "API-Gateway"
+    }
   },
   {
     "instanceId": "i-0a2c4f6b8d1e3a5c7",
@@ -271,8 +367,12 @@
     "cpuUtilizationAvg": 86.5,
     "networkInBytes": 712000000000,
     "daysRunning": 156,
-    "monthlyCost": 74400.00,
-    "tags": { "Env": "Prod", "CostCenter": "HPC-6630", "Team": "HPC" }
+    "monthlyCost": 74400.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "HPC-6630",
+      "Team": "HPC"
+    }
   },
   {
     "instanceId": "i-0b3d5a7c9e2f4b6d8",
@@ -282,8 +382,12 @@
     "cpuUtilizationAvg": 82.3,
     "networkInBytes": 598000000000,
     "daysRunning": 89,
-    "monthlyCost": 62100.00,
-    "tags": { "Env": "Prod", "CostCenter": "HPC-6630", "Team": "HPC" }
+    "monthlyCost": 62100.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "HPC-6630",
+      "Team": "HPC"
+    }
   },
   {
     "instanceId": "i-0c4e6b8d1f3a5c7e9",
@@ -293,8 +397,12 @@
     "cpuUtilizationAvg": 54.6,
     "networkInBytes": 1874000000000,
     "daysRunning": 534,
-    "monthlyCost": 98700.00,
-    "tags": { "Env": "Prod", "CostCenter": "DATA-3301", "Team": "Data-Lake" }
+    "monthlyCost": 98700.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DATA-3301",
+      "Team": "Data-Lake"
+    }
   },
   {
     "instanceId": "i-0d5f7c9e2a4b6d8f1",
@@ -304,8 +412,12 @@
     "cpuUtilizationAvg": 48.2,
     "networkInBytes": 287000000000,
     "daysRunning": 712,
-    "monthlyCost": 54000.00,
-    "tags": { "Env": "Prod", "CostCenter": "DEVOPS-3310", "Team": "Observability" }
+    "monthlyCost": 54000.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DEVOPS-3310",
+      "Team": "Observability"
+    }
   },
   {
     "instanceId": "i-0e6a8d1f3b5c7e9a2",
@@ -315,8 +427,12 @@
     "cpuUtilizationAvg": 61.4,
     "networkInBytes": 412000000000,
     "daysRunning": 423,
-    "monthlyCost": 72800.00,
-    "tags": { "Env": "Prod", "CostCenter": "BACK-8801", "Team": "Cache-Layer" }
+    "monthlyCost": 72800.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "BACK-8801",
+      "Team": "Cache-Layer"
+    }
   },
   {
     "instanceId": "i-0f7b9e2a4c6d8f1b3",
@@ -326,8 +442,12 @@
     "cpuUtilizationAvg": 75.8,
     "networkInBytes": 524000000000,
     "daysRunning": 267,
-    "monthlyCost": 58400.00,
-    "tags": { "Env": "Prod", "CostCenter": "STREAM-7701", "Team": "Stream-Processing" }
+    "monthlyCost": 58400.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "STREAM-7701",
+      "Team": "Stream-Processing"
+    }
   },
   {
     "instanceId": "i-0a8c1f3d5e7b9a2c4",
@@ -337,8 +457,12 @@
     "cpuUtilizationAvg": 52.3,
     "networkInBytes": 198000000000,
     "daysRunning": 189,
-    "monthlyCost": 46200.00,
-    "tags": { "Env": "Prod", "CostCenter": "BACK-8801", "Team": "Messaging" }
+    "monthlyCost": 46200.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "BACK-8801",
+      "Team": "Messaging"
+    }
   },
   {
     "instanceId": "i-0b9d2a4f6c8e1b3d5",
@@ -348,8 +472,12 @@
     "cpuUtilizationAvg": 58.9,
     "networkInBytes": 276000000000,
     "daysRunning": 334,
-    "monthlyCost": 38700.00,
-    "tags": { "Env": "Prod", "CostCenter": "BACK-8801", "Team": "Session-Store" }
+    "monthlyCost": 38700.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "BACK-8801",
+      "Team": "Session-Store"
+    }
   },
   {
     "instanceId": "i-0c1e3b5a7d9f2c4e6",
@@ -359,8 +487,12 @@
     "cpuUtilizationAvg": 44.7,
     "networkInBytes": 124000000000,
     "daysRunning": 891,
-    "monthlyCost": 32400.00,
-    "tags": { "Env": "Prod", "CostCenter": "DEVOPS-3310", "Team": "DevOps" }
+    "monthlyCost": 32400.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DEVOPS-3310",
+      "Team": "DevOps"
+    }
   },
   {
     "instanceId": "i-0d2f4c6b8e1a3d5f7",
@@ -370,8 +502,12 @@
     "cpuUtilizationAvg": 71.3,
     "networkInBytes": 312000000000,
     "daysRunning": 267,
-    "monthlyCost": 27900.00,
-    "tags": { "Env": "Prod", "CostCenter": "DEVOPS-3310", "Team": "CI-CD" }
+    "monthlyCost": 27900.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DEVOPS-3310",
+      "Team": "CI-CD"
+    }
   },
   {
     "instanceId": "i-0e3a5d7c9f2b4e6a8",
@@ -381,8 +517,12 @@
     "cpuUtilizationAvg": 63.8,
     "networkInBytes": 187000000000,
     "daysRunning": 156,
-    "monthlyCost": 41600.00,
-    "tags": { "Env": "Prod", "CostCenter": "MEDIA-5521", "Team": "Video-Processing" }
+    "monthlyCost": 41600.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "MEDIA-5521",
+      "Team": "Video-Processing"
+    }
   },
   {
     "instanceId": "i-0f4b6e8d1a3c5f7b9",
@@ -392,7 +532,11 @@
     "cpuUtilizationAvg": 38.4,
     "networkInBytes": 98000000000,
     "daysRunning": 567,
-    "monthlyCost": 19200.00,
-    "tags": { "Env": "Prod", "CostCenter": "DEVOPS-3310", "Team": "Logging" }
+    "monthlyCost": 19200.0,
+    "tags": {
+      "Env": "Prod",
+      "CostCenter": "DEVOPS-3310",
+      "Team": "Logging"
+    }
   }
 ]
